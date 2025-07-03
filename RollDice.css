@@ -1,0 +1,212 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #121212, #1e1e1e);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #eee;
+}
+
+main {
+  width: 850px;
+  height: 480px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  background: linear-gradient(to right, #1a1a1a 50%, #1c1c1c 50%);
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0, 255, 100, 0.1), inset 0 0 5px rgba(0, 255, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+/* New Game Button */
+.btn--new-game {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #00cc66;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 2px 5px rgba(0, 255, 150, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.btn--new-game:hover {
+  background-color: #00e67a;
+}
+
+/* Player Sections */
+.player {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.player--0 {
+  background-color: #133d26;
+  color: #aaffcc;
+}
+
+.player--1 {
+  background-color: #1f5735;
+  color: #ccffee;
+}
+
+.player--active {
+  border: 2px solid #00ff80;
+  box-shadow: inset 0 0 8px rgba(0, 255, 120, 0.2);
+}
+
+.name {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.score {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #00ff99;
+}
+
+/* Current Box */
+.current {
+  background-color: rgba(0, 255, 120, 0.08);
+  border: 1px solid #00ff80;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: auto;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.current-label {
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  color: #b2ffe6;
+}
+
+.current-score {
+  font-size: 2rem;
+  color: #66ffcc;
+}
+
+
+.center-controls {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+
+.dice {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 0 12px rgba(0, 255, 100, 0.3);
+}
+
+
+.btn {
+  background-color: #00cc66;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 255, 150, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #00e67a;
+}
+
+.btn--roll,
+.btn--hold {
+  width: 130px;
+  justify-content: center;
+}
+
+.icon {
+  font-size: 1.2rem;
+}
+
+
+.player--winner {
+  background-color: #ffe600; 
+  color: #000;
+  border: 3px solid #fff700;
+  box-shadow: 0 0 25px #ffe600, 0 0 40px #ffe600;
+  transform: scale(1.03);
+}
+
+.player--winner .score {
+  color: #d32f2f;
+}
+
+.player--winner .current {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #000;
+  border: 2px solid #ffeb3b;
+}
+
+.player--winner .current-score {
+  color: #222;
+}
+
+.player--winner .current-label {
+  color: #000; 
+}
+
+.player--winner .current-score {
+  color: #111; 
+}
+.player--winner .current {
+  border: 3px solid #fff700; 
+  background-color: #fff70033; 
+  box-shadow: 0 0 15px #fff700aa;
+  color: #000; 
+}
+
+.player--winner .current-label {
+  color: #000;
+}
+
+.player--winner .current-score {
+  color: #111;
+}
