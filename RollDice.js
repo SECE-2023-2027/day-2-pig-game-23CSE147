@@ -37,40 +37,58 @@ init();
 function switchPlayer() {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
   currentScore = 0;
-  activePlayer = activePlayer === 0 ? 1 : 0;
+
+  switch (activePlayer) {
+    case 0:
+      activePlayer = 1;
+      break;
+    case 1:
+      activePlayer = 0;
+      break;
+  }
+
   player0El.classList.toggle('player--active');
   player1El.classList.toggle('player--active');
 }
 
 btnRoll.addEventListener('click', function () {
-  if (playing) {
-    const dice = Math.trunc(Math.random() * 6) + 1; 
+  switch (true) {
+    case playing === true:
+      const dice = Math.trunc(Math.random() * 6) + 1;
+      diceEl.style.display = 'block';
+      diceEl.src = `dice${dice}.jpg`;
 
-    diceEl.style.display = 'block';
-    diceEl.src = `dice${dice}.jpg`;
-
-    if (dice !== 1) {
-      currentScore += dice;
-      document.getElementById(`current--${activePlayer}`).textContent = currentScore;
-    } else {
-      switchPlayer();
-    }
+      switch (true) {
+        case dice !== 1:
+          currentScore += dice;
+          document.getElementById(`current--${activePlayer}`).textContent = currentScore;
+          break;
+        default:
+          switchPlayer();
+          break;
+      }
+      break;
   }
 });
 
 btnHold.addEventListener('click', function () {
-  if (playing) {
-    scores[activePlayer] += currentScore;
-    document.getElementById(`score--${activePlayer}`).textContent = scores[activePlayer];
+  switch (true) {
+    case playing === true:
+      scores[activePlayer] += currentScore;
+      document.getElementById(`score--${activePlayer}`).textContent = scores[activePlayer];
 
-    if (scores[activePlayer] >= 100) {
-      playing = false;
-      diceEl.style.display = 'none';
-      document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
-      document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
-    } else {
-      switchPlayer();
-    }
+      switch (true) {
+        case scores[activePlayer] >= 100:
+          playing = false;
+          diceEl.style.display = 'none';
+          document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
+          document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
+          break;
+        default:
+          switchPlayer();
+          break;
+      }
+      break;
   }
 });
 
